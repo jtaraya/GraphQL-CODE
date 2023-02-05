@@ -5,6 +5,22 @@ const UserList = [
         username: "bali",
         age: 1,
         nationality: "PORTUGAL",
+        friends: [
+            {
+                id: 2,
+                name: "Jacob",
+                username: "capra",
+                age: 39,
+                nationality: "KENYA",
+            },
+            {
+                id: 4,
+                name: "Belinda",
+                username: "sonnie",
+                age: 35,
+                nationality: "RWANDA",
+            },
+        ],
     },
     {
         id: 2,
@@ -12,6 +28,15 @@ const UserList = [
         username: "capra",
         age: 39,
         nationality: "KENYA",
+        friends: [
+            {
+                id: 4,
+                name: "Belinda",
+                username: "sonnie",
+                age: 35,
+                nationality: "RWANDA",
+            },
+        ],
     },
     {
         id: 3,
