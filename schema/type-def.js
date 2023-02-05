@@ -10,9 +10,18 @@ const typeDefs = gql`
         friends: [User]
     }
 
+    type Movie {
+        id: ID!
+        name: String!
+        yearOfRelease: Int!
+        isInTheaters: Boolean!
+    }
+
     type Query {
         users: [User!]!
         user(id: ID!):User!
+        movies: [Movie!]!
+        Movie(name: String!): Movie!
     }
 
     enum Nationality {

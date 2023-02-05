@@ -62,4 +62,31 @@ const UserList = [
 
 ];
 
-module.exports = { UserList };
+const MovieList = [
+    {
+        id: 6,
+        name: "Story of Taraya",
+        yearOfRelease: 2023,
+        isInTheaters: false,
+    },
+    {
+        id: 7,
+        name: "Interstellar",
+        yearOfRelease: 2007,
+        isInTheaters: true,
+    },
+    {
+        id: 8,
+        name: "Matrix",
+        yearOfRelease: 1999,
+        isInTheaters: true,
+    },
+    {
+        id: 9,
+        name: "Edge Of Tomorrow",
+        yearOfRelease: 2018,
+        isInTheaters: true,
+    },
+];
+
+module.exports = { UserList, MovieList };
