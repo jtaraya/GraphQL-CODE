@@ -7,10 +7,11 @@ const resolvers = {
             return UserList;
         },
         //If not using a parent use (_, args) to get access we passed in typeDefs (user(id: ID!):User!)
-        user: (_, args) => {
+        user: (parent, args) => {
             const id = args.id;
-
-        }
+            const user = _.find(UserList, { id: Number(id) });
+            return user;
+        },
     },
 };
 
