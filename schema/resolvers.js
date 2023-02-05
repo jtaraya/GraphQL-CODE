@@ -1,4 +1,5 @@
 const { UserList } = require("../FakeData");
+const _ = require("lodash");
 
 const resolvers = {
     Query: {
