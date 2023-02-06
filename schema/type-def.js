@@ -21,7 +21,7 @@ const typeDefs = gql`
         users: [User!]!
         user(id: ID!):User!
         movies: [Movie!]!
-        Movie(name: String!): Movie!
+        movie(name: String!): Movie!
     }
 
     enum Nationality {
