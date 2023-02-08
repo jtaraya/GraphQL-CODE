@@ -32,8 +32,14 @@ const typeDefs = gql`
         nationality: Nationality = KENYA
     }
 
+    input UpdateUserInput {
+        id: ID!
+        newUsername: String!
+    }
+
     type Mutation {
-        createUser(input: CreateUserInput!): User!
+        createUser(input: CreateUserInput!): User
+        updateUsername(input: UpdateUserInput!): User
     }
 
     enum Nationality {
