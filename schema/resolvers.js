@@ -26,7 +26,18 @@ const resolvers = {
     },
     User: {
         favoriteMovies: () => {
-            return _.filter(MovieList, (movie) => movie.yearOfRelease >= 1998 && movie.yearOfRelease <= 2002)
+            return _.filter(
+                MovieList,
+                (movie) => 
+                movie.yearOfRelease >= 1998 && movie.yearOfRelease <= 2002
+                );
+        },
+    },
+
+    Mutation: {
+        createUser: (parent, args) => {
+            const user = args.input;
+            console.log(user);
         }
     }
 };
