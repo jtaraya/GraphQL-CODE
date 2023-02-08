@@ -42,6 +42,10 @@ const resolvers = {
             UserList.push(user);
             return user;
         },
+
+        createUser: (parent, args) => {
+            const { id, newUsername} = args.input
+        },
     },
 };
 
