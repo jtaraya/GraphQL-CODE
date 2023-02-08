@@ -55,6 +55,10 @@ const resolvers = {
 
             return userUpdated;
         },
+
+        deleteUser: (parent, args) => {
+            const id = args.id;
+        },
     },
 };
 
