@@ -45,6 +45,11 @@ const resolvers = {
 
         createUser: (parent, args) => {
             const { id, newUsername} = args.input
+            UserList.forEach((user) => {
+                if (user.id === id) {
+                    user.username = newUsername;
+                }
+            });
         },
     },
 };
