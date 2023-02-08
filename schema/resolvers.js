@@ -44,12 +44,16 @@ const resolvers = {
         },
 
         createUser: (parent, args) => {
-            const { id, newUsername} = args.input
+            const { id, newUsername} = args.input;
+            let userUpdated;
             UserList.forEach((user) => {
                 if (user.id === id) {
                     user.username = newUsername;
+                    userUpdated = user;
                 }
             });
+
+            return userUpdated;
         },
     },
 };
