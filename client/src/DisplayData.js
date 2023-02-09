@@ -13,7 +13,7 @@ const QUERY_ALL_USERS = gql`
 `
 
 function DisplayData() {
-    const {data, loading} = useQuery(QUERY_ALL_USERS);
+    const {data, loading, error} = useQuery(QUERY_ALL_USERS);
 
     if (loading) {
         return <h1> DATA IS LOADING...</h1>;
@@ -22,6 +22,11 @@ function DisplayData() {
     if(data) {
         console.log(data);
     }
+
+    if (error) {
+        console.log(error);
+    }
+
 
     return <div></div>;
 }
