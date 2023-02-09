@@ -5,7 +5,7 @@ import DisplayData from './DisplayData';
 function App() {
   const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: "http://localhost:3000/graphql" // this is where you can also  put a public api
+    uri: "http://localhost:4000/graphql" // this is where you can also  put a public api
   })
   return (
   <ApolloProvider client={client}>
