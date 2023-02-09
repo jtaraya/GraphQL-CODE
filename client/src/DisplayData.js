@@ -67,7 +67,7 @@ function DisplayData() {
                     })}
 
                     <div>
-                        <input type="text" placeholder="The Matrix..." />
+                        <input type="text" placeholder="The Matrix..." onChange= {(event) => {setMovieSearched(event.target.value)}} />
                         <button> Fetch Data</button>
                     </div>
     </div>;
