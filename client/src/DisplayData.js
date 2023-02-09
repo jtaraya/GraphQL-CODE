@@ -96,11 +96,13 @@ function DisplayData() {
                         Fetch Data
                         </button>
                         <div>
-                            {movieSearchedData && 
+                            {movieSearchedData && (
                                 <div> 
                                 <h1> MovieName: {movieSearchedData.movie.name} </h1>
                                 <h1> yearOfRelease: {movieSearchedData.movie.yearOfRelease} </h1>
-                                </div>}
+                                </div>
+                                )}
+                                {movieError && <h1> There was an error fetching the data </h1>}
                         </div>
                     </div>
     </div>;
