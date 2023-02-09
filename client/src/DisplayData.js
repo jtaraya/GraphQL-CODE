@@ -109,7 +109,7 @@ function DisplayData() {
         <button
           onClick={() => {
             createUser({
-              variables: { input: { name, username, age: 21 , nationality } },
+              variables: { input: { name, username, age: Number(age) , nationality } },
             });
 
             refetch();
