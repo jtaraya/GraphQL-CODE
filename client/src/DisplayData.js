@@ -33,6 +33,14 @@ const GET_MOVIE_BY_NAME = gql`
   }
 `;
 
+const CREATE_USER_MUTATION = gql`
+mutation CreateUser($input: CreateUserInput!) {
+    createUser(input: $input)
+    name
+    id
+}
+`
+
 function DisplayData() {
   const [movieSearched, setMovieSearched] = useState("");
 
@@ -46,6 +54,8 @@ function DisplayData() {
   const { data: movieData } = useQuery(QUERY_ALL_MOVIES);
   const [fetchMovie, { data: movieSearchedData, error: movieError }] =
     useLazyQuery(GET_MOVIE_BY_NAME);
+
+    
 
   if (loading) {
     return <h1> DATA IS LOADING...</h1>;
