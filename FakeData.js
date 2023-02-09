@@ -65,26 +65,26 @@ const UserList = [
 const MovieList = [
     {
         id: 6,
-        name: "Story of Taraya",
+        name: "Inception of Taraya",
         yearOfRelease: 2023,
         isInTheaters: false,
     },
     {
         id: 7,
-        name: "Interstellar",
-        yearOfRelease: 2007,
+        name: "Catch Me If You Can",
+        yearOfRelease: 2002,
         isInTheaters: true,
     },
     {
         id: 8,
-        name: "Matrix",
+        name: "The Matrix",
         yearOfRelease: 1999,
         isInTheaters: true,
     },
     {
         id: 9,
         name: "Edge Of Tomorrow",
-        yearOfRelease: 2018,
+        yearOfRelease: 2014,
         isInTheaters: true,
     },
 ];

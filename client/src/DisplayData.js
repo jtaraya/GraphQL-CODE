@@ -13,8 +13,20 @@ const QUERY_ALL_USERS = gql`
     }
 `
 
+const QUERY_ALL_MOVIES = gql`
+    query GetAllMovies {
+        movies {
+            id
+            name
+            yearOfRelease
+            isInTheaters
+        }
+    }
+`
+
 function DisplayData() {
     const {data, loading, error} = useQuery(QUERY_ALL_USERS);
+    const {data: movieData} = useQuery(QUERY_ALL_MOVIES);
 
     if (loading) {
         return <h1> DATA IS LOADING...</h1>;
@@ -41,7 +53,16 @@ function DisplayData() {
                 </div>
             );
         })}
+
+            {movieData &&
+                        movieData.movies.map((movie) => {
+                            return (
+                                <div>
+                                    <h1>Movie Name: {movie.name} </h1>
+                            </div>
+                        );
+                    })}
     </div>;
-}
+};
 
 export default DisplayData;
