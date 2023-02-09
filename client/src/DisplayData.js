@@ -60,7 +60,15 @@ function DisplayData() {
     }
 
 
-    return <div>
+    return (
+    <div>
+        <div>
+            <input type="text" placeholder="Name..." />
+            <input type="text" placeholder="Username..." />
+            <input type="number" placeholder="Age..." />
+            <input type="text" placeholder="Nationality..." />
+            <button> Create User </button>
+        </div>
         {data &&
              data.users.map((user) => {
                 return (
@@ -105,7 +113,8 @@ function DisplayData() {
                                 {movieError && <h1> There was an error fetching the data </h1>}
                         </div>
                     </div>
-    </div>;
-};
+    </div>
+    );
+}
 
 export default DisplayData;
