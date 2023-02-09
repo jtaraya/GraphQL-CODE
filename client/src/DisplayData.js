@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 
 const QUERY_ALL_USERS = gql`
@@ -25,6 +25,9 @@ const QUERY_ALL_MOVIES = gql`
 `
 
 function DisplayData() {
+
+    const [movieSearched, setMovieSearched] = useState("")
+
     const {data, loading, error} = useQuery(QUERY_ALL_USERS);
     const {data: movieData} = useQuery(QUERY_ALL_MOVIES);
 
@@ -62,6 +65,11 @@ function DisplayData() {
                             </div>
                         );
                     })}
+
+                    <div>
+                        <input type="text" placeholder="The Matrix..." />
+                        <button> Fetch Data</button>
+                    </div>
     </div>;
 };
 
