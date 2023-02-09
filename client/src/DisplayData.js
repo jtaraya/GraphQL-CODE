@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery, useLazyQuery, gql } from "@apollo/client";
+import { useQuery, useLazyQuery, useMutation, gql } from "@apollo/client";
 
 const QUERY_ALL_USERS = gql`
   query GetAllUsers {
@@ -34,12 +34,13 @@ const GET_MOVIE_BY_NAME = gql`
 `;
 
 const CREATE_USER_MUTATION = gql`
-mutation CreateUser($input: CreateUserInput!) {
-    createUser(input: $input)
-    name
-    id
-}
-`
+  mutation CreateUser($input: CreateUserInput!) {
+    createUser(input: $input) {
+        name
+        id
+    }
+  }
+`;
 
 function DisplayData() {
   const [movieSearched, setMovieSearched] = useState("");
@@ -55,7 +56,7 @@ function DisplayData() {
   const [fetchMovie, { data: movieSearchedData, error: movieError }] =
     useLazyQuery(GET_MOVIE_BY_NAME);
 
-    
+  const [createUser] = useMutation(CREATE_USER_MUTATION);
 
   if (loading) {
     return <h1> DATA IS LOADING...</h1>;
@@ -104,7 +105,15 @@ function DisplayData() {
             setNationality(event.target.value.toUpperCase());
           }}
         />
-        <button> Create User </button>
+        <button
+          onClick={() => {
+            createUser({
+              variables: { input: { name, username, age: 21 , nationality } },
+            });
+          }}
+        >
+          Create User
+        </button>
       </div>
       {data &&
         data.users.map((user) => {

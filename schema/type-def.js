@@ -49,6 +49,7 @@ const typeDefs = gql`
         RWANDA
         KENYA
         JAMAICA
+        FRANCE
     }
 `;
 
