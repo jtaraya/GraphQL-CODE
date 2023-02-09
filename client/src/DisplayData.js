@@ -55,6 +55,10 @@ function DisplayData() {
         console.log(error);
     }
 
+    if (movieError) {
+        console.log(movieError);
+    }
+
 
     return <div>
         {data &&
