@@ -22,7 +22,16 @@ const QUERY_ALL_MOVIES = gql`
             isInTheaters
         }
     }
-`
+`;
+
+const GET_MOVIE_BY_NAME = gql`
+query Movie($name: String!){
+    movie(name: $name){
+        name
+        yearOfRelease
+    }
+}
+`;
 
 function DisplayData() {
 
@@ -30,7 +39,9 @@ function DisplayData() {
 
     const {data, loading, error} = useQuery(QUERY_ALL_USERS);
     const {data: movieData} = useQuery(QUERY_ALL_MOVIES);
-    const [fetchMovie, {data: movieSearchedData, error: movieError }] = useLazyQuery();
+    const [fetchMovie,
+         {data: movieSearchedData, error: movieError }
+        ] = useLazyQuery(GET_MOVIE_BY_NAME);
 
     if (loading) {
         return <h1> DATA IS LOADING...</h1>;
@@ -73,7 +84,20 @@ function DisplayData() {
                           placeholder="The Matrix..." 
                           onChange= {(event) => {
                             setMovieSearched(event.target.value)}} />
-                        <button onClick={fetchMovie}> Fetch Data</button>
+                        <button 
+                        onClick={() => {fetchMovie({variables: {
+                            name: movieSearched,},
+                            });
+                        }}> 
+                        Fetch Data
+                        </button>
+                        <div>
+                            {movieSearchedData && 
+                                <div> 
+                                <h1> MovieName: {movieSearchedData.movie.name} </h1>
+                                <h1> yearOfRelease: {movieSearchedData.movie.yearOfRelease} </h1>
+                                </div>}
+                        </div>
                     </div>
     </div>;
 };
