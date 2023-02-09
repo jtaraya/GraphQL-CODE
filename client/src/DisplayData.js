@@ -51,7 +51,7 @@ function DisplayData() {
   const [age, setAge] = useState(0);
   const [nationality, setNationality] = useState("");
 
-  const { data, loading, refetch } = useQuery(QUERY_ALL_USERS);
+  const { data, loading, error, refetch } = useQuery(QUERY_ALL_USERS);
   const { data: movieData } = useQuery(QUERY_ALL_MOVIES);
 
   const [fetchMovie, { data: movieSearchedData, error: movieError }] =
