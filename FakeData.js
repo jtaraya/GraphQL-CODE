@@ -42,7 +42,7 @@ const UserList = [
         id: 3,
         name: "Pedro",
         username: "pedrotech",
-        age: 20,
+        age: 21,
         nationality: "BRAZIL",
     },
     {

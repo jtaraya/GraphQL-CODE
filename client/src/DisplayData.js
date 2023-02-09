@@ -8,6 +8,7 @@ const QUERY_ALL_USERS = gql`
             name
             age
             username
+            nationality
         }
     }
 `
@@ -36,6 +37,7 @@ function DisplayData() {
                         <h1>Name: {user.name} </h1>
                         <h1>Username: {user.username} </h1>
                         <h1>Age: {user.age} </h1>
+                        <h1>Nationality: {user.nationality} </h1>
                 </div>
             );
         })}
