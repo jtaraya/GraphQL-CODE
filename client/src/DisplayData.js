@@ -91,7 +91,7 @@ function DisplayData() {
           type="text"
           placeholder="Nationality..."
           onChange={(event) => {
-            setNationality(event.target.value);
+            setNationality(event.target.value.toUpperCase());
           }}
         />
         <button> Create User </button>
