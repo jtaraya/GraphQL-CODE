@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
 
 const QUERY_ALL_USERS = gql`
     query GetAllUsers {
@@ -30,6 +30,7 @@ function DisplayData() {
 
     const {data, loading, error} = useQuery(QUERY_ALL_USERS);
     const {data: movieData} = useQuery(QUERY_ALL_MOVIES);
+    const [fetchMovie, {data: movieSearchedData, error: movieError }] = useLazyQuery();
 
     if (loading) {
         return <h1> DATA IS LOADING...</h1>;
@@ -67,8 +68,12 @@ function DisplayData() {
                     })}
 
                     <div>
-                        <input type="text" placeholder="The Matrix..." onChange= {(event) => {setMovieSearched(event.target.value)}} />
-                        <button> Fetch Data</button>
+                        <input
+                         type="text"
+                          placeholder="The Matrix..." 
+                          onChange= {(event) => {
+                            setMovieSearched(event.target.value)}} />
+                        <button onClick={fetchMovie}> Fetch Data</button>
                     </div>
     </div>;
 };
